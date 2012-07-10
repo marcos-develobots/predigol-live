@@ -32,7 +32,15 @@ helper.get = function(aMatches, aCountry, aCallback) {
             if (scores.length != 2)
               return;
 
-            results.push({"team_home" : aMatch.team_home, "team_away" : aMatch.team_away, "score_home" : scores[0], "score_away" : scores[1]});
+            var status = $(matches[0]).children("td").get(0);
+            status = $(status).text();
+
+            results.push(
+              {"team_home" : aMatch.team_home,
+               "team_away" : aMatch.team_away,
+               "score_home" : scores[0],
+               "score_away" : scores[1],
+               "status" : status});
           });
 
           return results;

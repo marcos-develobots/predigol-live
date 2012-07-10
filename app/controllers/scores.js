@@ -8,6 +8,6 @@ module.exports = function (_app) {
 
 controller.getForMatches = function(req, res, next) {
   return liveScore.get(req.body.matches, req.body.country,function(aResult) {
-    return res.json({"result" : aResult});
+    return res.json({"matches" : aResult});
   });
 };
