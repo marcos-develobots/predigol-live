@@ -5,5 +5,5 @@ module.exports = function(app) {
   var scores        = require('../app/controllers/scores')(app);
 
   // Public endpoints
-  app.post('/scores/get', scores.getByTeam);
+  app.post('/scores/get', scores.getForMatches);
 };
