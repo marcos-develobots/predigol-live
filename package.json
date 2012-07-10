@@ -1,0 +1,20 @@
+{
+  "name"        : "predigol-live"
+  , "version"     : "0.0.1"
+  , "homepage"    : "http://predigol-live.herokuapp.com/"
+  , "description" : "ExpressJS API for Predigol-Live"
+  , "repository"  : "git://github.com/jose-develobots/predigol.git"
+  , "author"      : "Marcos Aruj <marcos@develobots.com>"
+  , "dependencies": {
+  "express"           : "2.5.4"
+  , "express-messages"  : "0.0.x"
+  , "express-resource"  : "0.2.4"
+  , "path"              : "0.4.x"
+  , "phantom"           : "0.3.x"
+}
+  , "main"    : "./index.js"
+  , "engines" : {
+  "node": "0.6.x"
+  , "npm" : "1.0.x"
+}
+}

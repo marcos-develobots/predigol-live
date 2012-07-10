@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Predigol Live index</title>
+</head>
+<body>
+
+<section>
+  <h2>API Tester</h2>
+  <div>
+    Endpoint:
+    <select id="tester-api">
+      <option>http://localhost:3030/</option>
+      <option>http://live.predigol.com/</option>
+    </select>
+    <select id="tester-endpoint">
+      <option>scores/get</option>
+    </select>
+    <input type="button" onclick="callAPI()" value="Make Call">
+  </div>
+  <div>Params:</div>
+  <textarea id="tester-params" rows="6" cols="80"></textarea>
+  <div>Response:</div>
+  <textarea id="tester-response" rows="15" cols="80"></textarea>
+</section>
+
+</body>
+</html>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+function callAPI() {
+  var url = $("#tester-api").val() + $("#tester-endpoint").val();
+  var params;
+  try {
+    params = JSON.parse($("#tester-params").val());
+  }
+  catch (e) {
+    params = {};
+  }
+
+  $.ajax({
+    type : 'POST',
+    url : url,
+    data : params,
+    success : function(aData) {
+      $("#tester-response").text(JSON.stringify(aData));
+    },
+    error : function(aError) {
+      $("#tester-response").text("ERROR: " + JSON.stringify(aError));
+    },
+    dataType : "json"
+  });
+}
+</script>
